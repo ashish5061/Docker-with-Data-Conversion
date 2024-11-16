@@ -1,0 +1,16 @@
+  services:
+    backend:
+      build: ./backend
+      ports:
+        - "8000:8000"
+      volumes:
+        - ./backend:/backend
+    frontend:
+      build: ./frontend
+      ports:
+        - "3000:3000"
+      volumes:
+        - ./frontend/src:/frontend/src
+        - ./frontend/package.json:/frontend/package.json
+        - ./frontend/package-lock.json:/frontend/package-lock.json
+      command: ["npm", "run", "dev"] 
